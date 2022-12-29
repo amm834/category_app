@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {getAllCategory} from "../models/category.js";
+import {getAllCategory, getCategoryById} from "../models/category.js";
 
 const router = Router()
 
@@ -11,8 +11,11 @@ router.get('/', async (req, res) => {
     })
 })
 
-router.get('/:id', (req, res) => {
-    return res.json(req.params)
+router.get('/:id', async (req, res) => {
+    const {id} = req.params
+    const category = await getCategoryById(id)
+
+    return res.json(category)
 })
 
 

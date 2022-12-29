@@ -19,4 +19,8 @@ const getAllCategory = () => {
     return Category.find({})
 }
 
-export {saveCategory, getAllCategory}
+const getCategoryById = (_id) => {
+    return Category.findById(_id)
+}
+
+export {saveCategory, getAllCategory, getCategoryById}
